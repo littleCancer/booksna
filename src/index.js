@@ -8,10 +8,13 @@ import {createBrowserHistory} from 'history';
 import routes from './routes';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import configureStore from './store/configureStore'
+import * as bookActions from './actions/bookActions'
 
 const browserHistory = createBrowserHistory();
 
 const store = configureStore();
+
+store.dispatch(bookActions.fetchBooks());
 
 // render2 (
 //   {routes},
