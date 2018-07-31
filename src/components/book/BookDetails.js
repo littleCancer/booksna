@@ -9,15 +9,17 @@ const BookDetails = (props) => {
         </a>
       </div>
       <div className="media-body">
-        <h4 className="media-heading">Title</h4>
+        <h4 className="media-heading">{props.book.title}</h4>
         <ul>
-          <li><stron>Author: </stron> Author</li>
-          <li><stron>Price: </stron> Price</li>
-          <li><stron>Year: </stron> Year</li>
+          <li><strong>Author: </strong> {props.book.author}</li>
+          <li><strong>Price: </strong> ${props.book.price}</li>
+          <li><strong>Year: </strong> {props.book.year}</li>
           <br/>
-          <button className="btn btn-primary">Buy</button>
+          <button className="btn btn-primary" onClick={event => props.addToCart(props.book)} >Buy</button>
         </ul>
       </div>
     </div>
   );
 };
+
+export default BookDetails;

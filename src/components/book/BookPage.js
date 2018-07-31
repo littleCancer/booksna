@@ -26,10 +26,10 @@ class Book extends React.Component {
           <h3>Books</h3>
           <table className="table">
             <thead>
-              <th>
+              <tr>
                 <td>Title</td>
                 <td></td>
-              </th>
+              </tr>
             </thead>
             <tbody>
             {this.props.books.map((b, i) =>

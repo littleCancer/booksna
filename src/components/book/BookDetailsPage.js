@@ -2,18 +2,32 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import BookDetails from './BookDetails';
+import * as bookActions from '../../actions/bookActions'
 
 class BookDetailsPage extends React.Component {
 
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
+    console.log("propsss " + props);
+  }
+
+  componentDidMount() {
+    this.props.fetchBookById(this.props.match.params.id);
+  }
+
+  addToCart(book) {
+    const item = {
+      title: book.title,
+      price: book.price
+    };
+    this.props.addToCart(item);
   }
 
   render() {
     return (
       <div>
         <h1>Book Details Page</h1>
-        <BookDetails />
+        <BookDetails book={this.props.book}/>
       </div>
     );
   }
@@ -22,14 +36,14 @@ class BookDetailsPage extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-
+    book: state.book
   };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    fetchBookById: bookId => dispatch(bookActions.fetchBookById(bookId))
   };
 }
 
-export default connect(mapStateToProps, mapStateToProps)(BookDetailsPage);
+export default connect(mapStateToProps, mapDispatchToProps)(BookDetailsPage);
