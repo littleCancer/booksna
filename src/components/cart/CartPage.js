@@ -36,4 +36,16 @@ class CartPage extends React.Component {
 
 }
 
-export default CartPage;
+const mapStoreToProps = (state, ownProps) => {
+  return {
+    items: state.cart;
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchCart: dispatch(bookActions.fetchCart)
+  };
+};
+
+export default connect(mapStoreToProps, mapDispatchToProps)(CartPage);
