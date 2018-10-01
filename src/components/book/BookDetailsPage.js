@@ -1,14 +1,14 @@
-import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators} from 'redux';
 import BookDetails from './BookDetails';
 import * as bookActions from '../../actions/bookActions'
+import { PropTypes } from 'prop-types';
 
 class BookDetailsPage extends React.Component {
 
   constructor(props, context) {
     super(props, context);
-    console.log("propsss " + props);
   }
 
   componentDidMount() {

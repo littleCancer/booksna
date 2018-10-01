@@ -43,7 +43,7 @@ class Book extends React.Component {
         </div>
         <div className="col-md-6">
           <h3>New Book</h3>
-          <BookForm ubmitBook={this.submitBook.bind(this)}/>
+          <BookForm submitBook={this.submitBook.bind(this)}/>
         </div>
       </div>
     );
